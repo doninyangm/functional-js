@@ -51,14 +51,16 @@
             ]
 
             const map = (apressBooks,(book) => {
-                let  result = [];
+                let  results = [];
                 for(const value of book)
-                    result.push(value)
+                results.push.apply(results, book);
 
-                console.log(result.description)
-                console.log(result)
+                console.log(results.description)
+                console.log(results)
             })
             map(apressBooks, (x) => {title: x.title; author: x.author; description: x.description})
+            console.log('before map')
+            console.log(apressBooks.map((x) => {title: x.title; author: x.author; description: x.description}))
         </script>
     </body>
 </html>

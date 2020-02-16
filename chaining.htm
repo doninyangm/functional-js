@@ -38,16 +38,14 @@
                     "rating": [4.2],
                     "reviews": [{good : 14 , excellent : 12}]
                 }
-            ]
+            ];
 
             const map = (apressBooks,(book) => {
-                console.log('books')
-                console.log(apressBooks)
                 let  result = [];
                 for(const value of apressBooks)
                     result.push(value)
 
-                console.log(result);
+                return result;
             })
 
             const filter = (apressBooks, fn) =>{
@@ -55,14 +53,11 @@
                 for(const value of apressBooks)
                     (fn(value)) ? results.push(value) : undefined
                 
-                console.log('filter')
-                console.log(results)
                 return results;
             }
-
-            map(filter(apressBooks, (book) => book.rating[0] > 4.5), (book) => {
-                console.log({title: book.title,author:book.author})
-            })
+            console.log(apressBooks.map(x => {title: x.title; author: x.author}))
+            console.log(apressBooks.filter(book => book.rating[0] > 4.5))//.map((x) => {title: x.title; author: x.author}))
+            //apressBooks.map(apressBooks.filter(book => book.rating[0] > 4.5), (x) => {title: x.title; author: x.author});
             //map(apressBooks, (x) => {title: x.title; author: x.author})
             //filter(apressBooks, (book) => book.rating[0] > 4.5)
 
