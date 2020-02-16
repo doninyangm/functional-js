@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Apress publications - Functional Array</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    
+        <script>
+            let apressBooks = [
+                {
+                    "name": "beginner",
+                    "description": [
+                        {
+                            "id": 111,
+                            "title": "C# 6.0",
+                            "author": "ANDREW TROELSEN",
+                            "rating": [4.7],
+                            "reviews": [{good : 4 , excellent : 12}]
+                        },
+                        {
+                            "id": 222,
+                            "title": "Efficient Learning Machines",
+                            "author": "Rahul Khanna",
+                            "rating": [4.5],
+                            "reviews": []
+                        }
+                    ]
+                },
+                {
+                    "name": "pro",
+                    "description":[
+                        {
+                            "id": 333,
+                            "title": "Pro AngularJS",
+                            "author": "Adam Freeman",
+                            "rating": [4.0],
+                            "reviews": []
+                        },
+                        {
+                            "id": 444,
+                            "title": "Pro ASP.NET",
+                            "author": "Adam Freeman",
+                            "rating": [4.2],
+                            "reviews": [{good : 14 , excellent : 12}]
+                        }
+                    ] 
+                },
+            ]
+
+            const map = (apressBooks,(book) => {
+                let  result = [];
+                for(const value of book)
+                    result.push(value)
+
+                console.log(result.description)
+                console.log(result)
+            })
+            map(apressBooks, (x) => {title: x.title; author: x.author; description: x.description})
+        </script>
+    </body>
+</html>

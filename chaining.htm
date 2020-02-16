@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Apress publications - Functional Array (Chaining)</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    
+        <script>
+            let apressBooks = [
+                {
+                    "id": 111,
+                    "title": "C# 6.0",
+                    "author": "ANDREW TROELSEN",
+                    "rating": [4.7],
+                    "reviews": [{good : 4 , excellent : 12}]
+                },
+                {
+                    "id": 222,
+                    "title": "Efficient Learning Machines",
+                    "author": "Rahul Khanna",
+                    "rating": [4.5],
+                    "reviews": []
+                },
+                {
+                    "id": 333,
+                    "title": "Pro AngularJS",
+                    "author": "Adam Freeman",
+                    "rating": [4.0],
+                    "reviews": []
+                },
+                {
+                    "id": 444,
+                    "title": "Pro ASP.NET",
+                    "author": "Adam Freeman",
+                    "rating": [4.2],
+                    "reviews": [{good : 14 , excellent : 12}]
+                }
+            ]
+
+            const map = (apressBooks,(book) => {
+                console.log('books')
+                console.log(apressBooks)
+                let  result = [];
+                for(const value of apressBooks)
+                    result.push(value)
+
+                console.log(result);
+            })
+
+            const filter = (apressBooks, fn) =>{
+                let results = [];
+                for(const value of apressBooks)
+                    (fn(value)) ? results.push(value) : undefined
+                
+                console.log('filter')
+                console.log(results)
+                return results;
+            }
+
+            map(filter(apressBooks, (book) => book.rating[0] > 4.5), (book) => {
+                console.log({title: book.title,author:book.author})
+            })
+            //map(apressBooks, (x) => {title: x.title; author: x.author})
+            //filter(apressBooks, (book) => book.rating[0] > 4.5)
+
+            // map(filter(apressBooks, (book) => book.rating[0] > 4.5),(book) => {
+            //     return {title: book.title,author:book.author}
+            // })
+        </script>
+    </body>
+</html>
